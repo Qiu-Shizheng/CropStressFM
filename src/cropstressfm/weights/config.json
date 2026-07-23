@@ -1,0 +1,64 @@
+{
+  "name": "CropStressFM",
+  "version": "1.0.0",
+  "description": "A species-agnostic ensemble for crop abiotic-stress gene prioritization and stress-type scoring",
+  "seeds": [41, 42, 43],
+  "architecture": {
+    "kmer_dim": 4096,
+    "numeric_dim": 2561,
+    "d_model": 192,
+    "hidden_dim": 768,
+    "n_layers": 4,
+    "n_heads": 8,
+    "dropout": 0.4,
+    "kmer_rank": 96,
+    "n_views": 4
+  },
+  "input": {
+    "promoter_orientation": "transcriptional orientation with the TSS-proximal base at the right end",
+    "promoter_maximum_bp": 2000,
+    "promoter_views_bp": [2000, 200, 500, 2000],
+    "k": 5,
+    "kmer_encoding": "exact collision-free normalized frequencies",
+    "esm2_model": "ESM-2 t33 650M UR50D",
+    "esm2_raw_dimension": 2560,
+    "esm2_model_dimension": 2561,
+    "esm2_pooling": "residue-length-weighted mean concatenated with global maximum",
+    "gene_identifier_used_as_feature": false,
+    "species_used_as_feature": false
+  },
+  "stress_types": [
+    "heat",
+    "drought",
+    "salt",
+    "cold",
+    "osmotic",
+    "other_abiotic"
+  ],
+  "stress_display_names": {
+    "heat": "Heat",
+    "drought": "Drought",
+    "salt": "Salt",
+    "cold": "Cold",
+    "osmotic": "Osmotic",
+    "other_abiotic": "Other abiotic"
+  },
+  "thresholds": {
+    "stress_gene": 0.5395221295353535,
+    "heat": 0.8965689008808082,
+    "drought": 0.9716349601804714,
+    "salt": 0.8968851964363637,
+    "cold": 0.9799482650666668,
+    "osmotic": 0.9728472217373738,
+    "other_abiotic": 0.7929559840754203
+  },
+  "threshold_selection": "Validation-only thresholds optimized before locked evaluation",
+  "ensemble": "Arithmetic mean of three independently trained models",
+  "gate_names": [
+    "promoter_full",
+    "promoter_200bp",
+    "promoter_500bp",
+    "promoter_2000bp",
+    "protein_esm2"
+  ]
+}

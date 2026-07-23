@@ -1,0 +1,37 @@
+{
+  "format_version": 1,
+  "model_name": "CropStressFM",
+  "release_version": "1.0.0",
+  "checkpoint_files": {
+    "config.json": {
+      "sha256": "2215783c7be91f0cd39aa0bf921d49966a9fbec12f2167d427634f0a74ac4a25",
+      "bytes": 1813
+    },
+    "cropstressfm_seed41.pt": {
+      "sha256": "164c91596a7db0996f2080257a4de85f86d19944c53f5e8f84917f68b5083e16",
+      "bytes": 13228839
+    },
+    "cropstressfm_seed42.pt": {
+      "sha256": "188cf71fc6cafe79fc8706b3458ea560f926f44d7de033e6963efb91499c200a",
+      "bytes": 13228839
+    },
+    "cropstressfm_seed43.pt": {
+      "sha256": "6ea3e540ef1bb07635248ca48943487cd77a7d21b7c2703763e00b1cf23f47b1",
+      "bytes": 13228839
+    },
+    "esm2_scaler.npz": {
+      "sha256": "122439243df7dc5f885af16646144bab76a62ad85b39955674426bafc050e6eb",
+      "bytes": 18933
+    }
+  },
+  "ensemble_seeds": [
+    41,
+    42,
+    43
+  ],
+  "inference_parameters_per_seed": 3300200,
+  "protein_encoder": {
+    "name": "ESM-2 t33 650M UR50D",
+    "checkpoint_sha256": "ea9d0522b335a8778dea6535a65301f10208dece28cd5865482b0b1fc446168c"
+  }
+}
